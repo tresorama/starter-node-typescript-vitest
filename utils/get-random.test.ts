@@ -1,5 +1,5 @@
 import { test, expect, describe } from 'vitest';
-import { getRandomArrayItem, getRandomInteger } from './get-random';
+import { getRandomArrayItem, getRandomColor, getRandomInteger, getRandomUnsplashImage } from './get-random';
 
 describe('getRandomInteger', () => {
 
@@ -30,6 +30,27 @@ describe('getRandomArrayItem', () => {
       expect(result).not.toBeUndefined();
       expect(a).toContain(result);
     }
+  });
+
+});
+
+describe('getRandomColor', () => {
+
+  test('should return a color string array item', () => {
+    const result = getRandomColor().hsl;
+    expect(result).not.toBeUndefined();
+    expect(typeof result === 'string').toBeTruthy();
+  });
+
+});
+
+describe('getRandomUnsplashImage', () => {
+
+  test('should return a valid unsplash image url', () => {
+    const result = getRandomUnsplashImage({});
+    expect(result).not.toBeUndefined();
+    expect(typeof result === 'string').toBeTruthy();
+    console.log({ result });
   });
 
 });
